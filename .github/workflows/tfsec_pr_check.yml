@@ -1,23 +1,15 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: tfsec-pr-check
-
+name: tfsec-pr-commenter
 on:
   pull_request:
-
 jobs:
   tfsec:
-    name: tfsec PR check
+    name: tfsec PR commenter
     runs-on: ubuntu-latest
 
     steps:
       - name: Clone repo
         uses: actions/checkout@master
-
-      - name: Run tfsec
+      - name: tfsec
         uses: aquasecurity/tfsec-pr-commenter-action@v1.2.0
         with:
           github_token: ${{ github.token }}
